@@ -1,5 +1,12 @@
 # ProjetZKP
 
+Ce projet utilise https://github.com/Zokrates/ZoKrates
+
+L'utilisation des différents outils est inspirée de:
+
+- ZoKrates: https://blog.gnosis.pm/getting-started-with-zksnarks-zokrates-61e4f8e66bcc
+- truffle et ganache: https://hackernoon.com/ethereum-development-walkthrough-part-2-truffle-ganache-geth-and-mist-8d6320e12269
+
 ## Dépendances
 
 - Debian 9
@@ -61,7 +68,7 @@ La boite à outils ZoKrates permet de traduire du code en langage ZoKrates en So
 
 ### Ecriture du Code
 
-Le code à écrire est situé dans `ZoKrates/code`
+Le code à écrire est situé dans `ZoKrates/code` . La documentation associée au langage requis peut être trouvée ici: https://zokrates.github.io/
 
 ### Traduction en Solidity et génération de la preuve
 
