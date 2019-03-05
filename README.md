@@ -7,6 +7,9 @@ L'utilisation des différents outils est inspirée de:
 - ZoKrates: https://blog.gnosis.pm/getting-started-with-zksnarks-zokrates-61e4f8e66bcc
 - truffle et ganache: https://hackernoon.com/ethereum-development-walkthrough-part-2-truffle-ganache-geth-and-mist-8d6320e12269
 
+A noter que ceci peut aussi se faire sur Windows via PowerShell.
+Une documentation à ce sujet est disponible, afin d'avoir du code partagé par un docker sur Windows.
+
 ## Dépendances
 
 - Debian 9
@@ -56,10 +59,10 @@ docker build -t zokrates_tutorial .
 Installer truffle et ganache:
 
 ```bash
-npm install -g truffle
+npm install -g truffle@">=4.0.0 <5.0.0"
 npm install -g ganache cli
 ```
-
+Afin d'éviter des conflits de version entre Zokrates et Truffle, la version 4.0 a été prise en compte pour Truffle.
 La version GUI de Ganache peut être trouvée ici: https://truffleframework.com/ganache
 
 ## Utilisation
