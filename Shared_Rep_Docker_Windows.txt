@@ -1,0 +1,21 @@
+Pour pouvoir sous Windows partager un dossier d'un docker avec l'hôte il 
+faut suivre la procéduire suivante.
+
+Aller dans l'icône de la baleine dans la barre des tâches 
+puis Settings
+puis Shared Drives et cocher pour partager sur C: (ou tout autre disque).
+
+On créé un dossier sur son home windows par exemple shared containers.
+
+Ensuite ouvrir un shell powershell:
+
+Récupérer le nom du container.
+Démarrer le container zokrates, dans kitematic par exemple.
+
+Puis démarrer un shell en montant bien dans un répertoire partagé:
+docker run -ti --volume C:/Users/{users}/shared_docker/:/mnt/ zokrates/zokrates /bin/sh
+
+Faire attention à la syntaxe. Mettre des slashs et non des antislashs.
+Et j'ai mis /mnt/
+
+Ceci va démarrer le docker et monter le répertoire /mnt du docker dans le dossier partagé.
