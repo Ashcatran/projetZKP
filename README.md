@@ -44,6 +44,17 @@ docker build -t zokrates_tutorial .
 
 
 
+### Dépendances
+
+Installer truffle et ganache:
+
+```bash
+npm install -g truffle
+npm install -g ganache cli
+```
+
+La version GUI de Ganache peut être trouvée ici: https://truffleframework.com/ganache
+
 ## Utilisation
 
 La boite à outils ZoKrates permet de traduire du code en langage ZoKrates en Solidity, pour une utilisation dans la Blockchain Ethereum.
@@ -123,7 +134,6 @@ Lancer la console de truffle pour interagir avec le contrat:
 ```bash
 truffle console
 truffle(development)> Verifier.deployed().then(function(instance) { return instance.verifyTx([Paramètres]);})
-
 ```
 
 > **Note:** Les paramètres sont ceux fournis par `parseOutput.py`
