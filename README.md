@@ -102,7 +102,7 @@ Générer le vérifieur:
 Générer le témoin:
 
 ```bash
-./zokrates generate-proof > output.txt
+./zokrates generate-proof
 ```
 
 Copier les paramètres de la preuve (de A à K inclus) dans `output.txt` puis sortir du conteneur.  
