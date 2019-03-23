@@ -73,7 +73,7 @@ La boite à outils ZoKrates permet de traduire du code en langage ZoKrates en So
 
 Le code à écrire est situé dans `ZoKrates/code` . La documentation associée au langage requis peut être trouvée ici: https://zokrates.github.io/
 
-### Traduction en Solidity et génération de la preuve
+### Traduction en Solidity
 
 Lancer le docker de `ZoKrates`. `$PWD/code` doit pointer sur `ZoKrates/code`:
 
@@ -85,12 +85,6 @@ Compiler le code (ici `prime.code`):
 
 ```bash
 ./zokrates compile -i code/prime.code
-```
-
-Générer le témoin:
-
-```bash
-./zokrates compute-witness -a [Paramètres]
 ```
 
 Générer le vérifieur. Cela generera le fichier `verifier.sol`, qui contient le smart contract permettant de vérifier la preuve:
@@ -111,7 +105,15 @@ Copier verifier.sol dans le répertoire partagé avec l'hôte:
 cp verifier.sol code/verifier.sol
 ```
 
+### Génération de la preuve
+
 Générer le témoin:
+
+```bash
+./zokrates compute-witness -a [Paramètres, paramètres privés] # exemple: 1 1 1 1 4 2 2
+```
+
+Générer la preuve. Le résultat doit être écrit dans un fichier partagé avec l'hôte, pour faciliter l'extraction des paramètres:
 
 ```bash
 ./zokrates generate-proof > code/output.txt
@@ -120,7 +122,7 @@ Générer le témoin:
 Les paramètres a fournir au vérifieur peuvent être générés grâce à `parseOutput.py`. Ce script lit le contenu de `output.txt`.
 
 ```bash
-python parseOutput.py [Paramètres]
+python parseOutput.py [Paramètres, sortie attendue] # exemple: 1 1 1 1 4 1
 ```
 
 ### Déploiement sur une blockchain privée
