@@ -60,7 +60,7 @@ Installer truffle et ganache:
 
 ```bash
 npm install -g truffle@">=4.0.0 <5.0.0"
-npm install -g ganache cli
+npm install -g ganache-cli
 ```
 Afin d'éviter des conflits de version entre Zokrates et Truffle, la version 4.0 a été prise en compte pour Truffle.
 La version GUI de Ganache peut être trouvée ici: https://truffleframework.com/ganache
