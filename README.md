@@ -75,13 +75,13 @@ Le code à écrire est situé dans `ZoKrates/code` . La documentation associée 
 
 ### Traduction en Solidity et génération de la preuve
 
-Lancer le docker de `ZoKrates`:
+Lancer le docker de `ZoKrates`. `$PWD/code` doit pointer sur `ZoKrates/code`:
 
 ```bash
-docker run -v $PWD/code:/home/zokrates/ZoKrates/target/debug/code -ti zokrates_tutorial /bin/bash
+docker run -v $PWD/code:/home/zokrates/code -ti zokrates_tutorial /bin/bash
 ```
 
-Compiler le code (ici `prime.code`) en Solidity:
+Compiler le code (ici `prime.code`):
 
 ```bash
 ./zokrates compile -i code/prime.code
@@ -93,19 +93,29 @@ Générer le témoin:
 ./zokrates compute-witness -a [Paramètres]
 ```
 
-Générer le vérifieur:
+Générer le vérifieur. Cela generera le fichier `verifier.sol`, qui contient le smart contract permettant de vérifier la preuve:
 
 ```bash
-./zokrates setup && ./zokrates export-verifier && cat verifier.sol
+./zokrates setup && ./zokrates export-verifier
+```
+
+Le fichier ainsi généré peut être visualisé avec la commande suivante:
+
+```bash
+cat verifier.sol
+```
+
+Copier verifier.sol dans le répertoire partagé avec l'hôte:
+
+```bash
+cp verifier.sol code/verifier.sol
 ```
 
 Générer le témoin:
 
 ```bash
-./zokrates generate-proof
+./zokrates generate-proof > code/output.txt
 ```
-
-Copier les paramètres de la preuve (de A à K inclus) dans `output.txt` puis sortir du conteneur.  
 
 Les paramètres a fournir au vérifieur peuvent être générés grâce à `parseOutput.py`. Ce script lit le contenu de `output.txt`.
 
